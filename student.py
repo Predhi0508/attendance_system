@@ -6,6 +6,8 @@ import mysql.connector
 import cv2
 import os
 
+from face_recognition import Face_Recognition
+
 class Student:
     def __init__(self, root):
         self.root = root
@@ -417,7 +419,7 @@ class Student:
             messagebox.showerror("Error", "All fields are required", parent=self.root)
         else:
             try:
-                conn = mysql.connector.connect(host="localhost", user="root", password="predhi@12345", database="face_recognizer")
+                conn = mysql.connector.connect(host="localhost", user="root", password="your_password", database="face_recognizer")
                 my_cursor = conn.cursor()
                 my_cursor.execute("select * from student where Student_id=%s", (self.var_std_id.get(),))
                 my_cursor.fetchone()
@@ -465,13 +467,10 @@ class Student:
 
             except Exception as es:
                 messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
-
-   
-
+                   
 if __name__ == "__main__":
     root = Tk()
-    obj = Student(root)
-    root.mainloop()  
-    
+    obj = Face_Recognition(root)
+    root.mainloop()                   
     
    

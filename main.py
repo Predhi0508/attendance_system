@@ -164,8 +164,8 @@ class Face_Recgnition_System:
     def attendance_data(self):
         messagebox.showinfo("Button Clicked", "Attendance Section opened!") 
 
-    def chatbot_data(self):
-        messagebox.showinfo("Button Clicked", "Chatbot Section opened!") 
+    def chatbot_data(self):3
+    messagebox.showinfo("Button Clicked", "Chatbot Section opened!") 
 
     def train_data(self):
         messagebox.showinfo("Button Clicked", "Train Data Section opened!")    
