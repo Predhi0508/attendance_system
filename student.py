@@ -458,7 +458,7 @@ class Student:
                         cv2.imshow("Cropped Face", face)
 
                     # Stop if 'Enter' (13) is pressed or 100 images are taken
-                    if cv2.waitKey(1) == 13 or int(img_id) == 100:
+                    if cv2.waitKey(1) == 13 or int(img_id) == 10:
                         break
                 
                 cap.release()

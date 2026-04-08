@@ -12,11 +12,10 @@ class Train:
         self.root.geometry("1530x790+0+0")
         self.root.title("Face Recognition System - Training")
 
-        # Title (y=0)
+        # Title 
         title_lbl = Label(self.root, text="TRAIN DATA SET", font=("times new roman", 35, "bold"), bg="white", fg="red")
         title_lbl.place(x=0, y=0, width=1530, height=45)
 
-        # Top 3 Images (Starting at y=45 so title is visible)
         # First image
         img = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\facial-recognition-attendance-system.jpg")
         img = img.resize((510, 180), Image.Resampling.LANCZOS)
@@ -42,7 +41,7 @@ class Train:
         b1_1 = Button(self.root, text="TRAIN DATA", command=self.train_classifier, cursor="hand2", font=("times new roman", 30, "bold"), bg="red", fg="white")
         b1_1.place(x=0, y=225, width=1530, height=60)
 
-        # Bottom Image (Moved up slightly to look better)
+        # Bottom Image 
         img_bottom = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\training data.webp")
         img_bottom = img_bottom.resize((1530, 500), Image.Resampling.LANCZOS)
         self.photoimg_bottom = ImageTk.PhotoImage(img_bottom)
@@ -51,7 +50,6 @@ class Train:
 
     def train_classifier(self):
         data_dir = ("data")
-        # Ensure the data folder exists
         if not os.path.exists(data_dir):
             messagebox.showerror("Error", "No 'data' folder found!")
             return
