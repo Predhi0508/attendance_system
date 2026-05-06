@@ -73,6 +73,9 @@ class Attendance:
         reset_btn = Button(btn_frame, text="Reset", command=self.reset_data, width=17, font=("times new roman", 12, "bold"), bg="blue", fg="white")
         reset_btn.grid(row=0, column=3)
 
+        submit_btn = Button(btn_frame, text="Submit", command=self.fetchData, width=17, font=("times new roman", 12, "bold"), bg="blue", fg="white")
+        submit_btn.grid(row=0, column=4)
+
         # Right Label Frame (Table Display)
         Right_frame = LabelFrame(main_frame, bd=2, bg="white", relief=RIDGE, text="Attendance Table", font=("times new roman", 12, "bold"))
         Right_frame.place(x=750, y=10, width=720, height=660)
@@ -153,9 +156,9 @@ class Attendance:
         self.var_atten_time.set("")
         self.var_atten_date.set("")
         self.var_atten_attendance.set("")
-
+    
 if __name__ == "__main__":
-    root = Tk()
-    obj = Attendance(root)
-    root.mainloop()
+      root = Tk()
+      obj = Attendance(root)
+      root.mainloop()
     

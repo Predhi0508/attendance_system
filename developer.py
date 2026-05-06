@@ -16,7 +16,7 @@ class Developer:
 
         # Background Image (Tech Circuit)
         # Update this path to where your background image is stored
-        img_bg = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\dev.webp") 
+        img_bg = Image.open(r"d:\New Folder\bg.png") 
         img_bg = img_bg.resize((1530, 720), Image.Resampling.LANCZOS)
         self.photoimg_bg = ImageTk.PhotoImage(img_bg)
         
@@ -29,7 +29,7 @@ class Developer:
         main_frame.place(x=515, y=50, width=500, height=600)
 
         # 1. Developer Photo
-        img_dev = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\girl.webp") 
+        img_dev = Image.open(r"d:\New Folder\girl.webp") 
         img_dev = img_dev.resize((200, 200), Image.Resampling.LANCZOS)
         self.photoimg_dev = ImageTk.PhotoImage(img_dev)
         
@@ -37,10 +37,11 @@ class Developer:
         f_lbl_dev.place(x=150, y=20, width=200, height=200)
 
         # 2. Developer Name & Role
-        dev_name = Label(main_frame, text="Hello, My Name is Predhi", font=("times new roman", 20, "bold"), bg="white", fg="black")
+       
+        dev_name = Label(main_frame, text="Pridhi Mattu", font=("times new roman", 20, "bold"), bg="white", fg="black")
         dev_name.place(x=0, y=230, width=500)
-
-        dev_role = Label(main_frame, text="I am a Full Stack Developer", font=("times new roman", 16, "bold"), bg="white", fg="black")
+        
+        dev_role = Label(main_frame, text="I am a Student", font=("times new roman", 16, "bold"), bg="white", fg="black")
         dev_role.place(x=0, y=270, width=500)
 
         # 3. Contact Details

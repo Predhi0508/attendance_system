@@ -6,7 +6,6 @@ import mysql.connector
 import cv2
 import os
 
-from face_recognition import Face_Recognition
 
 class Student:
     def __init__(self, root):
@@ -44,17 +43,17 @@ class Student:
         self.top_frame.place(x=0, y=0, width=1530, height=180)
 
         # Header Images
-        img = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\Saved Pictures\student.webp")
+        img = Image.open(r"d:\New Folder\facial-recognition-attendance-system.jpg")
         img = img.resize((510, 180), Image.Resampling.LANCZOS)
         self.photoimg = ImageTk.PhotoImage(img)
         f_lbl = Label(self.top_frame, image=self.photoimg).place(x=0, y=0, width=510, height=180)
 
-        img1 = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\Saved Pictures\download.webp")
+        img1 = Image.open(r"d:\New Folder\170864455-d1ca33f4-5424-44f3-b359-297fc560c0b0.png")
         img1 = img1.resize((510, 180), Image.Resampling.LANCZOS)
         self.photoimg1 = ImageTk.PhotoImage(img1)
         f_lbl1 = Label(self.top_frame, image=self.photoimg1).place(x=510, y=0, width=510, height=180)
         
-        img2 = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\Saved Pictures\student 2.webp")
+        img2 = Image.open(r"d:\New Folder\istockphoto-1139859279-612x612.webp")
         img2 = img2.resize((510, 180), Image.Resampling.LANCZOS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
         f_lbl2 = Label(self.top_frame, image=self.photoimg2).place(x=1020, y=0, width=510, height=180)
@@ -71,7 +70,7 @@ class Student:
         left_frame = LabelFrame(main_frame, text="Student Information", font=("Helvetica", 12, "bold"), bg="white", bd=2, relief=RIDGE)
         left_frame.place(x=10, y=10, width=735, height=510)
 
-        img_left= Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\si.jpg")
+        img_left= Image.open(r"d:\New Folder\ssss.webp")
         img_left = img_left.resize((720, 160), Image.Resampling.LANCZOS)
         self.photoimg_left = ImageTk.PhotoImage(img_left)
         Label(left_frame, image=self.photoimg_left).place(x=5, y=0, width=720, height=160)
@@ -158,7 +157,7 @@ class Student:
         right_frame = LabelFrame(main_frame, text="Student Records", font=("Helvetica", 12, "bold"), bg="white", fg="black", bd=2, relief=RIDGE)
         right_frame.place(x=755, y=10, width=735, height=490)
 
-        img_right = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\ssss.webp")
+        img_right = Image.open(r"d:\New Folder\si.jpg")
         img_right = img_right.resize((710, 130), Image.Resampling.LANCZOS)
         self.photoimg_right = ImageTk.PhotoImage(img_right)
         Label(right_frame, image=self.photoimg_right, bd=2, relief=RIDGE).place(x=5, y=5, width=710, height=130)
@@ -470,7 +469,7 @@ class Student:
                    
 if __name__ == "__main__":
     root = Tk()
-    obj = Face_Recognition(root)
+    obj = Student(root)
     root.mainloop()                   
     
    

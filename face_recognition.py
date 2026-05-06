@@ -19,14 +19,14 @@ class Face_Recognition:
         title_lbl.place(x=0, y=0, width=1530, height=45)
 
         # 1st Image (Left)
-        img_top = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\R.jpg") 
+        img_top = Image.open(r"d:\New Folder\1_FW2rw68RCH1DyT6soXgNNQ.jpg") 
         img_top = img_top.resize((650, 700), Image.Resampling.LANCZOS)
         self.photoimg_top = ImageTk.PhotoImage(img_top)
         f_lbl = Label(self.root, image=self.photoimg_top)
         f_lbl.place(x=0, y=45, width=650, height=700)
 
         # 2nd Image (Right)
-        img_bottom = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\picc.jpg") 
+        img_bottom = Image.open(r"d:\New Folder\facial-recognition-attendance-system.jpg") 
         img_bottom = img_bottom.resize((950, 700), Image.Resampling.LANCZOS)
         self.photoimg_bottom = ImageTk.PhotoImage(img_bottom)
         f_lbl2 = Label(self.root, image=self.photoimg_bottom)
@@ -116,7 +116,6 @@ class Face_Recognition:
             img = draw_boundary(img, faceCascade, 1.1, 10, (255, 25, 255), "Face", clf)
             cv2.imshow("Welcome to Face Recognition", img)
 
-            # Close on 'Enter' (13) or clicking 'X' on window
             if cv2.waitKey(1) == 13 or cv2.getWindowProperty("Welcome to Face Recognition", cv2.WND_PROP_VISIBLE) < 1:
                 break
 

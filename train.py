@@ -17,21 +17,21 @@ class Train:
         title_lbl.place(x=0, y=0, width=1530, height=45)
 
         # First image
-        img = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\facial-recognition-attendance-system.jpg")
+        img = Image.open(r"d:\New Folder\facial-recognition-attendance-system.jpg")
         img = img.resize((510, 180), Image.Resampling.LANCZOS)
         self.photoimg = ImageTk.PhotoImage(img)
         f_lbl = Label(self.root, image=self.photoimg)
         f_lbl.place(x=0, y=45, width=510, height=180)
 
         # Second Image
-        img1 = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\170864455-d1ca33f4-5424-44f3-b359-297fc560c0b0.png")
+        img1 = Image.open(r"d:\New Folder\170864455-d1ca33f4-5424-44f3-b359-297fc560c0b0.png")
         img1 = img1.resize((510, 180), Image.Resampling.LANCZOS)
         self.photoimg1 = ImageTk.PhotoImage(img1)
         f_lbl1 = Label(self.root, image=self.photoimg1)
         f_lbl1.place(x=510, y=45, width=510, height=180)
 
         # Third Image
-        img2 = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\New Folder\1_FW2rw68RCH1DyT6soXgNNQ.jpg")
+        img2 = Image.open(r"d:\New Folder\1_FW2rw68RCH1DyT6soXgNNQ.jpg")
         img2 = img2.resize((510, 180), Image.Resampling.LANCZOS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
         f_lbl2 = Label(self.root, image=self.photoimg2)
@@ -42,7 +42,7 @@ class Train:
         b1_1.place(x=0, y=225, width=1530, height=60)
 
         # Bottom Image 
-        img_bottom = Image.open(r"c:\Users\Pridhi\OneDrive\Pictures\memories\training data.webp")
+        img_bottom = Image.open(r"d:\New Folder\train.jpg")
         img_bottom = img_bottom.resize((1530, 500), Image.Resampling.LANCZOS)
         self.photoimg_bottom = ImageTk.PhotoImage(img_bottom)
         f_lbl_bottom = Label(self.root, image=self.photoimg_bottom)
