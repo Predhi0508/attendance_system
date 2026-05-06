@@ -9,7 +9,6 @@ from student import Student
 from train import Train 
 from face_recognition import Face_Recognition
 from Attendance import Attendance
-from developer import Developer
 from help import helpdesk
 from chatbot import ChatBot
 
