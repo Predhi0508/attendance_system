@@ -6,7 +6,7 @@ import os
 import csv
 from tkinter import filedialog
 
-# Global variable to store attendance data
+# Global variable to store attendance data list
 mydata = []
 
 class Attendance:
@@ -15,7 +15,7 @@ class Attendance:
         self.root.geometry("1530x790+0+0")
         self.root.title("Attendance Management System")
 
-        # Variables
+        # ================= Variables =================
         self.var_atten_id = StringVar()
         self.var_atten_roll = StringVar()
         self.var_atten_name = StringVar()
@@ -31,52 +31,52 @@ class Attendance:
         main_frame = Frame(self.root, bd=2, bg="white")
         main_frame.place(x=10, y=55, width=1500, height=700)
 
-        # Left Label Frame (Data Entry)
+        # Left Label Frame (Information Entry)
         Left_frame = LabelFrame(main_frame, bd=2, bg="white", relief=RIDGE, text="Attendance Details", font=("times new roman", 12, "bold"))
         Left_frame.place(x=10, y=10, width=730, height=660)
 
-        # Fields (ID, Roll, Name, Dept, Time, Date, Status)
-        # ID
-        attendanceId_label = Label(Left_frame, text="Attendance ID:", font=("times new roman", 12, "bold"), bg="white")
-        attendanceId_label.grid(row=0, column=0, padx=10, pady=5, sticky=W)
-        attendanceId_entry = ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_id, font=("times new roman", 12, "bold"))
-        attendanceId_entry.grid(row=0, column=1, padx=10, pady=5, sticky=W)
+        # Labels and Entry Fields
+        # Attendance ID
+        Label(Left_frame, text="Attendance ID:", font=("times new roman", 12, "bold"), bg="white").grid(row=0, column=0, padx=10, pady=10, sticky=W)
+        ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_id, font=("times new roman", 12, "bold")).grid(row=0, column=1, padx=10, pady=10, sticky=W)
 
         # Name
-        nameLabel = Label(Left_frame, text="Name:", font=("times new roman", 12, "bold"), bg="white")
-        nameLabel.grid(row=0, column=2, padx=10, pady=5, sticky=W)
-        nameEntry = ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_name, font=("times new roman", 12, "bold"))
-        nameEntry.grid(row=0, column=3, padx=10, pady=5, sticky=W)
+        Label(Left_frame, text="Name:", font=("times new roman", 12, "bold"), bg="white").grid(row=0, column=2, padx=10, pady=10, sticky=W)
+        ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_name, font=("times new roman", 12, "bold")).grid(row=0, column=3, padx=10, pady=10, sticky=W)
 
         # Roll
-        rollLabel = Label(Left_frame, text="Roll:", font=("times new roman", 12, "bold"), bg="white")
-        rollLabel.grid(row=1, column=0, padx=10, pady=5, sticky=W)
-        rollEntry = ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_roll, font=("times new roman", 12, "bold"))
-        rollEntry.grid(row=1, column=1, padx=10, pady=5, sticky=W)
+        Label(Left_frame, text="Roll:", font=("times new roman", 12, "bold"), bg="white").grid(row=1, column=0, padx=10, pady=10, sticky=W)
+        ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_roll, font=("times new roman", 12, "bold")).grid(row=1, column=1, padx=10, pady=10, sticky=W)
 
         # Department
-        depLabel = Label(Left_frame, text="Department:", font=("times new roman", 12, "bold"), bg="white")
-        depLabel.grid(row=1, column=2, padx=10, pady=5, sticky=W)
-        depEntry = ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_dep, font=("times new roman", 12, "bold"))
-        depEntry.grid(row=1, column=3, padx=10, pady=5, sticky=W)
+        Label(Left_frame, text="Department:", font=("times new roman", 12, "bold"), bg="white").grid(row=1, column=2, padx=10, pady=10, sticky=W)
+        ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_dep, font=("times new roman", 12, "bold")).grid(row=1, column=3, padx=10, pady=10, sticky=W)
+
+        # Time
+        Label(Left_frame, text="Time:", font=("times new roman", 12, "bold"), bg="white").grid(row=2, column=0, padx=10, pady=10, sticky=W)
+        ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_time, font=("times new roman", 12, "bold")).grid(row=2, column=1, padx=10, pady=10, sticky=W)
+
+        # Date
+        Label(Left_frame, text="Date:", font=("times new roman", 12, "bold"), bg="white").grid(row=2, column=2, padx=10, pady=10, sticky=W)
+        ttk.Entry(Left_frame, width=20, textvariable=self.var_atten_date, font=("times new roman", 12, "bold")).grid(row=2, column=3, padx=10, pady=10, sticky=W)
+
+        # Status
+        Label(Left_frame, text="Attendance Status:", font=("times new roman", 12, "bold"), bg="white").grid(row=3, column=0, padx=10, pady=10, sticky=W)
+        self.atten_status = ttk.Combobox(Left_frame, width=18, textvariable=self.var_atten_attendance, font=("times new roman", 12, "bold"), state="readonly")
+        self.atten_status["values"] = ("Status", "Present", "Absent")
+        self.atten_status.current(0)
+        self.atten_status.grid(row=3, column=1, padx=10, pady=10, sticky=W)
 
         # Buttons Frame
         btn_frame = Frame(Left_frame, bd=2, relief=RIDGE, bg="white")
-        btn_frame.place(x=0, y=300, width=715, height=35)
+        btn_frame.place(x=10, y=350, width=705, height=35)
 
-        import_btn = Button(btn_frame, text="Import csv", command=self.importCsv, width=17, font=("times new roman", 12, "bold"), bg="blue", fg="white")
-        import_btn.grid(row=0, column=0)
+        Button(btn_frame, text="Import csv", command=self.importCsv, width=15, font=("times new roman", 11, "bold"), bg="blue", fg="white").grid(row=0, column=0)
+        Button(btn_frame, text="Export csv", command=self.exportCsv, width=15, font=("times new roman", 11, "bold"), bg="blue", fg="white").grid(row=0, column=1)
+        Button(btn_frame, text="Update", command=self.update_data, width=15, font=("times new roman", 11, "bold"), bg="blue", fg="white").grid(row=0, column=2)
+        Button(btn_frame, text="Reset", command=self.reset_data, width=15, font=("times new roman", 11, "bold"), bg="blue", fg="white").grid(row=0, column=3)
 
-        export_btn = Button(btn_frame, text="Export csv", command=self.exportCsv, width=17, font=("times new roman", 12, "bold"), bg="blue", fg="white")
-        export_btn.grid(row=0, column=1)
-
-        reset_btn = Button(btn_frame, text="Reset", command=self.reset_data, width=17, font=("times new roman", 12, "bold"), bg="blue", fg="white")
-        reset_btn.grid(row=0, column=3)
-
-        submit_btn = Button(btn_frame, text="Submit", command=self.fetchData, width=17, font=("times new roman", 12, "bold"), bg="blue", fg="white")
-        submit_btn.grid(row=0, column=4)
-
-        # Right Label Frame (Table Display)
+        # Right Label Frame (Table View)
         Right_frame = LabelFrame(main_frame, bd=2, bg="white", relief=RIDGE, text="Attendance Table", font=("times new roman", 12, "bold"))
         Right_frame.place(x=750, y=10, width=720, height=660)
 
@@ -100,22 +100,27 @@ class Attendance:
         self.AttendanceReportTable.heading("department", text="Department")
         self.AttendanceReportTable.heading("time", text="Time")
         self.AttendanceReportTable.heading("date", text="Date")
-        self.AttendanceReportTable.heading("attendance", text="Attendance")
+        self.AttendanceReportTable.heading("attendance", text="Status")
 
         self.AttendanceReportTable["show"] = "headings"
         self.AttendanceReportTable.pack(fill=BOTH, expand=1)
         self.AttendanceReportTable.bind("<ButtonRelease-1>", self.get_cursor)
 
-    # ========================== Functions ==========================
+    # ========================== LOGIC FUNCTIONS ==========================
+
     def fetchData(self, rows):
+        """Refreshes the Treeview table with data from the rows list"""
         self.AttendanceReportTable.delete(*self.AttendanceReportTable.get_children())
         for i in rows:
             self.AttendanceReportTable.insert("", END, values=i)
 
     def importCsv(self):
+        """Loads a CSV file into the table"""
         global mydata
         mydata.clear()
         fln = filedialog.askopenfilename(initialdir=os.getcwd(), title="Open CSV", filetypes=(("CSV File", "*.csv"), ("All File", "*.*")), parent=self.root)
+        if fln == "":
+            return
         with open(fln) as myfile:
             csvread = csv.reader(myfile, delimiter=",")
             for i in csvread:
@@ -123,23 +128,29 @@ class Attendance:
             self.fetchData(mydata)
 
     def exportCsv(self):
+        """Saves current table data to a CSV file (Excel format)"""
         try:
             if len(mydata) < 1:
                 messagebox.showerror("No Data", "No Data found to export", parent=self.root)
                 return False
             fln = filedialog.asksaveasfilename(initialdir=os.getcwd(), title="Save CSV", filetypes=(("CSV File", "*.csv"), ("All File", "*.*")), parent=self.root)
+            if fln == "":
+                return
             with open(fln, mode="w", newline="") as myfile:
                 exp_write = csv.writer(myfile, delimiter=",")
                 for i in mydata:
                     exp_write.writerow(i)
-                messagebox.showinfo("Data Export", "Your data has been exported to " + os.path.basename(fln) + " successfully")
+                messagebox.showinfo("Data Export", "Exported successfully to " + os.path.basename(fln))
         except Exception as es:
             messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
 
     def get_cursor(self, event=""):
+        """Fills the form boxes when you click on a row in the table"""
         cursor_row = self.AttendanceReportTable.focus()
         content = self.AttendanceReportTable.item(cursor_row)
         rows = content['values']
+        if len(rows) == 0:
+            return
         self.var_atten_id.set(rows[0])
         self.var_atten_roll.set(rows[1])
         self.var_atten_name.set(rows[2])
@@ -148,17 +159,37 @@ class Attendance:
         self.var_atten_date.set(rows[5])
         self.var_atten_attendance.set(rows[6])
 
+    def update_data(self):
+        """Adds or Updates the manually entered data into the table list"""
+        if self.var_atten_id.get() == "" or self.var_atten_name.get() == "":
+            messagebox.showerror("Error", "Please fill essential details!", parent=self.root)
+        else:
+            global mydata
+            # Collect current form data
+            new_row = [
+                self.var_atten_id.get(),
+                self.var_atten_roll.get(),
+                self.var_atten_name.get(),
+                self.var_atten_dep.get(),
+                self.var_atten_time.get(),
+                self.var_atten_date.get(),
+                self.var_atten_attendance.get()
+            ]
+            mydata.append(new_row)
+            self.fetchData(mydata)
+            messagebox.showinfo("Success", "Record added to the local list. Remember to Export to save permanently.", parent=self.root)
+
     def reset_data(self):
+        """Clears all input fields"""
         self.var_atten_id.set("")
         self.var_atten_roll.set("")
         self.var_atten_name.set("")
         self.var_atten_dep.set("")
         self.var_atten_time.set("")
         self.var_atten_date.set("")
-        self.var_atten_attendance.set("")
-    
+        self.var_atten_attendance.set("Status")
+
 if __name__ == "__main__":
-      root = Tk()
-      obj = Attendance(root)
-      root.mainloop()
-    
+    root = Tk()
+    obj = Attendance(root)
+    root.mainloop()

@@ -18,7 +18,7 @@ class Face_Recognition_System:
         self.root.geometry("1530x790+0+0")
         self.root.title("Face Recognition Attendance System")
 
-        # --- BACKGROUND IMAGE ---
+        # Background Image
         bg_img = Image.open(r"d:\New Folder\istockphoto-1964406389-612x612.webp")
         bg_img = bg_img.resize((1530, 790), Image.Resampling.LANCZOS)
         self.bg_img = ImageTk.PhotoImage(bg_img)

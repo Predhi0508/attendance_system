@@ -418,7 +418,7 @@ class Student:
             messagebox.showerror("Error", "All fields are required", parent=self.root)
         else:
             try:
-                conn = mysql.connector.connect(host="localhost", user="root", password="your_password", database="face_recognizer")
+                conn = mysql.connector.connect(host="localhost", user="root", password="predhi@12345", database="face_recognizer")
                 my_cursor = conn.cursor()
                 my_cursor.execute("select * from student where Student_id=%s", (self.var_std_id.get(),))
                 my_cursor.fetchone()
