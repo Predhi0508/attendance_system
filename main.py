@@ -3,8 +3,6 @@ from tkinter import ttk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
-
-# Import your other files
 from student import Student
 from train import Train 
 from face_recognition import Face_Recognition
